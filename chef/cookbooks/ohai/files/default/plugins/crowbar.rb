@@ -89,11 +89,11 @@ end
 #define SUPPORTED_10000baseKR_Full  (1 << 19)
 #define SUPPORTED_10000baseR_FEC    (1 << 20)
 
-def get_supported_speeds
+def get_supported_speeds(interface)
   ecmd = EthtoolCmd.new
   ecmd.cmd = ETHTOOL_GSET
 
-  ifreq = [ARGV[0], ecmd.data].pack("a16p")
+  ifreq = [interface, ecmd.data].pack("a16p")
   sock = Socket.new(Socket::AF_INET, Socket::SOCK_DGRAM, 0)
   sock.ioctl(SIOCETHTOOL, ifreq)
 
