@@ -6,7 +6,7 @@ rpm -Uvh /updates/wsman/wsmancli-2.2.7.1-11.x86_64.rpm
 =end
 provisioners = search(:node, "roles:provisioner-server")
 provisioner = provisioners[0] if provisioners
-web_port = (provisioner["provisioner"]["web_port"] || 3001) rescue 3001
+web_port = 3001 # Don't use apache for this. (provisioner["provisioner"]["web_port"] || 3001) rescue 3001
 address = Chef::Recipe::Barclamp::Inventory.get_network_by_type(provisioner, "admin").address rescue "127.0.0.1"
 path = ""
 path = "/gemsite" if web_port != 3001
