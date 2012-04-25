@@ -18,7 +18,7 @@ end
 t.run_action(:create_if_missing)
 
 gem_repo = "http://#{address}:#{web_port}/gemsite"
-gems = ["xml-simple","libxml-ruby","wsman"]
+gems = ["xml-simple","libxml-ruby","wsman","cstruct"]
 rpms = ["libwsman1-2.2.7-1.x86_64.rpm","wsmancli-2.2.7.1-11.x86_64.rpm"]
 gems.each do |gem|
   log("gem_package: #{gem}, next")
