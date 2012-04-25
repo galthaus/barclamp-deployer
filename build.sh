@@ -9,7 +9,7 @@ echo "Using: CROWBAR_DIR = $CROWBAR_DIR"
 echo "Using: BC_DIR = $BC_DIR"
 
 bc_needs_build() {
-    [[ ! -f "$BC_CACHE/gems/wsman-0.0.1.gem" ]]
+    true
 }
 
 bc_build() {
